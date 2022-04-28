@@ -1,4 +1,4 @@
-#CLIENT-SHARE
+ï»¿#CLIENT-SHARE
 #Author: Dorian Duboc
 
 #Variables
@@ -104,7 +104,7 @@ $dirshare = $objTextbox.Text
 if (Test-Path $dirshare){
 $returnStatus.BackColor = "Transparent"
 $returnStatus.ForeColor = "lime"
-$returnStatus.Text = "Status: Trouvé"
+$returnStatus.Text = "Status: TrouvÃ©"
 #$MainForm.Controls.Add($global:listbox)
 $global:listbox.Visible = $true
 $clientBrowseButton.Visible = $true
@@ -126,7 +126,7 @@ $clientBrowseButtonSend.Visible = $false
 $clientBrowseButton = New-Object System.Windows.Forms.Button
 $clientBrowseButton.Location = New-Object System.Drawing.Size(10,120)
 $clientBrowseButton.Size = New-Object System.Drawing.Size(100,20)
-$clientBrowseButton.Text = "Sélection fichier"
+$clientBrowseButton.Text = "SÃ©lection fichier"
 $clientBrowseButton.Add_Click($clientBrowsebutton_click)
 $clientBrowseButton.Enabled = $false
 $MainForm.Controls.Add($clientBrowseButton)
@@ -162,7 +162,7 @@ $MainForm.Controls.Add($clientBrowseButtonSend)
 
 #Action button send client browse file
 $clientBrowseButtonSendbutton_click = { 
-Copy-Item –Path "C:\test.txt" –Destination $global:selected
+Copy-Item -Path $global:clientBrowseTextSelection.Text -Destination $global:selected                                                                                         #bug#
 #verif
 #Invoke-Command -ScriptBlock { Get-ChildItem -Path "C:\test.txt" } -Session $MYSESSION
 }  
